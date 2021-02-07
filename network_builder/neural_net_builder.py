@@ -62,7 +62,6 @@ class NeuralNetworkBuilder:
     @staticmethod
     def _gen_conv(conv_child):
         conv_features = NeuralNetworkBuilder._get_features(conv_child)
-        print("CONV", conv_features)
         if "input_shape" in conv_features:
             return layers.Conv2D(
                 conv_features["filter_size"],
@@ -80,13 +79,11 @@ class NeuralNetworkBuilder:
     @staticmethod
     def _gen_pool(pool_child):
         pool_features = NeuralNetworkBuilder._get_features(pool_child)
-        print("POOL", pool_features)
         return layers.MaxPool2D(pool_features["kernel_size"][0], pool_features["kernel_size"][1])
 
     @staticmethod
     def _gen_dense(dense_child):
         dense_features = NeuralNetworkBuilder._get_features(dense_child)
-        print("DENSE", dense_features)
         if "activation" in dense_features:
             return layers.Dense(
                 dense_features["net_size"],
