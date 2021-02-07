@@ -32,7 +32,7 @@ def get_network_fitness(network_rules):
         train_images, train_labels, test_images, test_labels = load_data()
 
         gp = GrammarParser(grammar_file)
-        network_builder = NeuralNetworkBuilder(gp, epoch=1)
+        network_builder = NeuralNetworkBuilder(gp, epoch=7)
         network_builder.build(network_rules)
         network_builder.compile()
         history = network_builder.fit(train_images, train_labels, test_images, test_labels)
