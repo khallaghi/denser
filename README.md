@@ -22,6 +22,19 @@ The genetic algorithm which powered by `pyeasyga` framework search through the p
     * Copying a component right next to it 
     * Adding a random component to a module 
 
+Here is a sample of rule sentences:
+
+```
+conv::filter_size=32,filter_shape=3x3,activation=relu,input_shape=32x32x3;
+pool::kernel_size=2x2;
+conv::filter_size=64,filter_shape=3x3,activation=relu;
+pool::kernel_size=2x2;
+conv::filter_size=64,filter_shape=3x3,activation=relu;
+flatten;
+dense::net_size=64,activation=relu;
+dense::net_size=10;
+
+```
 ## Generating Phenotypes from Genotypes
 To achieve this goal we use `lark-parer` which is a very powerful python grammar parser to define the grammar of this DSL and parse sentences to the layers of `Sequential` model in Keras.
 Simply `fitness` function of above GA algorithm uses neural network builder and pass the sentence rules of a genotype to it to build and compile and eventually evaluate an individual model in the population and based on the accuracy of model on test dataset of `CIFAR-10` prune the population for next generations.  
