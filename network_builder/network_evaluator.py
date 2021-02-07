@@ -41,5 +41,6 @@ def get_network_fitness(network_rules):
         print("Accuracy: ", test_acc)
         print("loss: ", test_loss)
     except Exception as e:
-        print(e)
+        print("CAN NOT COMPILE THE MODEL")
+        # print(e)
     return test_acc, test_loss
