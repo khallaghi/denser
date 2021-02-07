@@ -1,0 +1,8 @@
+conv::filter_size=32,filter_shape=3x3,activation=relu,input_shape=32x32x3;
+pool::kernel_size=2x2;
+conv::filter_size=64,filter_shape=3x3,activation=relu;
+pool::kernel_size=2x2;
+conv::filter_size=64,filter_shape=3x3,activation=relu;
+flatten;
+dense::net_size=64,activation=relu;
+dense::net_size=10;

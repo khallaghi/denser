@@ -1,0 +1,34 @@
+start: (feature MAIN_DELIM)+ flatten MAIN_DELIM (classification MAIN_DELIM)+
+
+feature:  convolution | pooling
+
+convolution: "conv::" filter_size DELIM filter_shape DELIM activation (DELIM input_shape)?
+filter_size: "filter_size" ASSIGN one_dim_size
+filter_shape: "filter_shape" ASSIGN two_dim_size
+input_shape: "input_shape" ASSIGN three_dim_size
+
+pooling: "pool::" kernel_size
+kernel_size: "kernel_size" ASSIGN two_dim_size
+
+flatten: FLATTEN
+
+classification: "dense::" net_size ( DELIM activation )?
+net_size: "net_size" ASSIGN one_dim_size
+
+activation: "activation" ASSIGN string_value
+
+three_dim_size: NUMBER "x" NUMBER "x" NUMBER
+two_dim_size: NUMBER "x" NUMBER
+one_dim_size: NUMBER
+string_value: WORD
+
+FLATTEN: "flatten"
+DELIM: ","
+MAIN_DELIM: ";"
+ASSIGN: "="
+NUMBER: INT
+
+%import common.WORD
+%import common.INT
+%import common.WS
+%ignore WS
