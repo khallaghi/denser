@@ -1,6 +1,6 @@
 # Evolutionary Computing Course Project
 
-Implementation of DENSER or Deep Evolutionary Network Structured Representation paper.  
+Implementation of DENSER or Deep Evolutionary Network Structured Representation paper (https://arxiv.org/abs/1801.01563).  
 In a nutshell it is a evolutionary system which try to find the best neural network architecture in order to maximize accuracy of image recognition based on architecture of CNNs or Convolutional Neural Networks. 
 
 This project consists of two main part:
